@@ -15,8 +15,8 @@ function App() {
     <Router basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route exact path="/" component={ Search } />
-        <Route path="/shopping-cart" component={ ShoppingCart } />
-        <Route path="/checkout-products" component={ CheckoutProducts } />
+        <Route exact path="/shopping-cart" component={ ShoppingCart } />
+        <Route exact path="/checkout-products" component={ CheckoutProducts } />
         <Route exact path="/:id" component={ ProductDetails } />
       </Routes>
     </Router>
