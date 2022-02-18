@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.466a02b6.chunk.css",
-    "main.js": "/static/js/main.a9279573.chunk.js",
-    "main.js.map": "/static/js/main.a9279573.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.6839dbe2.js",
-    "runtime-main.js.map": "/static/js/runtime-main.6839dbe2.js.map",
-    "static/js/2.7b2302de.chunk.js": "/static/js/2.7b2302de.chunk.js",
-    "static/js/2.7b2302de.chunk.js.map": "/static/js/2.7b2302de.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.cac49fc30f6640b9fd5b2bed27d8e4ff.js": "/precache-manifest.cac49fc30f6640b9fd5b2bed27d8e4ff.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.466a02b6.chunk.css.map": "/static/css/main.466a02b6.chunk.css.map",
-    "static/js/2.7b2302de.chunk.js.LICENSE.txt": "/static/js/2.7b2302de.chunk.js.LICENSE.txt"
+    "main.css": "/non-official-a-project-frontend-online-store/static/css/main.466a02b6.chunk.css",
+    "main.js": "/non-official-a-project-frontend-online-store/static/js/main.b48c8a27.chunk.js",
+    "main.js.map": "/non-official-a-project-frontend-online-store/static/js/main.b48c8a27.chunk.js.map",
+    "runtime-main.js": "/non-official-a-project-frontend-online-store/static/js/runtime-main.c7870693.js",
+    "runtime-main.js.map": "/non-official-a-project-frontend-online-store/static/js/runtime-main.c7870693.js.map",
+    "static/js/2.7b2302de.chunk.js": "/non-official-a-project-frontend-online-store/static/js/2.7b2302de.chunk.js",
+    "static/js/2.7b2302de.chunk.js.map": "/non-official-a-project-frontend-online-store/static/js/2.7b2302de.chunk.js.map",
+    "index.html": "/non-official-a-project-frontend-online-store/index.html",
+    "precache-manifest.85abb20cf6f55fbfa216faed79c6e145.js": "/non-official-a-project-frontend-online-store/precache-manifest.85abb20cf6f55fbfa216faed79c6e145.js",
+    "service-worker.js": "/non-official-a-project-frontend-online-store/service-worker.js",
+    "static/css/main.466a02b6.chunk.css.map": "/non-official-a-project-frontend-online-store/static/css/main.466a02b6.chunk.css.map",
+    "static/js/2.7b2302de.chunk.js.LICENSE.txt": "/non-official-a-project-frontend-online-store/static/js/2.7b2302de.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.6839dbe2.js",
+    "static/js/runtime-main.c7870693.js",
     "static/js/2.7b2302de.chunk.js",
     "static/css/main.466a02b6.chunk.css",
-    "static/js/main.a9279573.chunk.js"
+    "static/js/main.b48c8a27.chunk.js"
   ]
 }
