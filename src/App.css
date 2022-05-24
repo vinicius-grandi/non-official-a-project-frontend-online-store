@@ -197,6 +197,7 @@ body {
 	font-size: 1.1rem;
 	max-width: 500px;
 	margin: auto;
+  text-align: center;
 }
 
 h2 {
@@ -391,7 +392,7 @@ h2 {
   }
 
   .product img {
-    width: 100%;
+    max-width: 100%;
   }
 
   .product {
