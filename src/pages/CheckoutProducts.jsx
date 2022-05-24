@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import BackArrow from '../components/BackArrow';
 import { useProductCount } from '../contexts/ShoppingCartProvider';
+import brazilianStates from '../data/brazilianStates.json'
 
 const CheckoutProducts = () => {
   const { count, checkoutInfo } = useProductCount();
@@ -28,8 +29,8 @@ const CheckoutProducts = () => {
         ))}
         <span className="price total-price">{checkoutInfo.totalPrice}</span>
       </div>
+      <h2>Informações do Comprador</h2>
       <div className="client-info">
-        <h2>Informações do Comprador</h2>
         <div>
           <input
             type="text"
@@ -76,30 +77,35 @@ const CheckoutProducts = () => {
           <input type="number" id="house-number" placeholder="Número" />
           <input type="text" id="city" placeholder="Cidade" />
           <select id="state" placeholder="Estado">
-            <option value="sao paulo">São Paulo</option>
+            {brazilianStates.map(
+              (val) => <option key={val} value={val}>{val}</option>
+            )}
           </select>
         </div>
+        <h2>Métodos de Pagamento</h2>
         <div className="payment-method">
           <label htmlFor="boleto">
-            Boleto
             <input type="radio" name="payment" value="boleto" id="boleto" />
+            Boleto
           </label>
           <p>Cartão de crédito</p>
-          <label htmlFor="visa">
-            Visa:
-            <input type="radio" name="payment" value="visa" id="visa" />
-          </label>
-          <label htmlFor="mastercard">
-            MasterCard:
-            <input type="radio" name="payment" value="mastercard" id="mastercard" />
-          </label>
-          <label htmlFor="elo">
-            Elo:
-            <input type="radio" name="payment" value="elo" id="elo" />
-          </label>
+          <div id="credit-card">
+            <label htmlFor="visa">
+              <input type="radio" name="payment" value="visa" id="visa" />
+              Visa
+            </label>
+            <label htmlFor="mastercard">
+              <input type="radio" name="payment" value="mastercard" id="mastercard" />
+              MasterCard
+            </label>
+            <label htmlFor="elo">
+              <input type="radio" name="payment" value="elo" id="elo" />
+              Elo
+            </label>
+          </div>
         </div>
       </div>
-      <button type="submit">Comprar</button>
+      <button type="submit" id="confirm-purchase-button">Comprar</button>
     </form>
   );
 };

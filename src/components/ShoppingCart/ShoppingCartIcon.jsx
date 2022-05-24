@@ -6,7 +6,7 @@ const ShoppingCartIcon = () => {
   const { productQuantity } = useProductCount();
 
   return (
-    <Link to="/shopping-cart">
+    <Link to="/shopping-cart" id="shopping-icon">
       <button type="button" data-testid="shopping-cart-button" className="icon-button">
         <span
           className="product-count"
@@ -14,7 +14,7 @@ const ShoppingCartIcon = () => {
         >
           {productQuantity.reduce((ac, { quantity }) => ac + quantity, 0)}
         </span>
-        <img src="images/shopping-cart.png" alt="shpping cart icon" />
+        <img src="/images/shopping-cart.png" alt="shpping cart icon" />
       </button>
     </Link>
   );

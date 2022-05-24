@@ -13,7 +13,7 @@ const ProductInfo = ({ product }) => {
             && (
               <span>
                 <img
-                  src="images/free-shipping.png"
+                  src="/images/free-shipping.png"
                   alt="free shipping icon"
                   className="free-shipping"
                   data-testid="free-shipping"

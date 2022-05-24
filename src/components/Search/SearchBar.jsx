@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SearchBar = ({ setSearch, category }) => (
+const SearchBar = ({ setSearch, category, queryButtonRef }) => (
   <div id="search-bar-container">
     <label
       htmlFor="search-bar"
@@ -12,6 +12,11 @@ const SearchBar = ({ setSearch, category }) => (
         type="text"
         id="search-bar"
         data-testid="query-input"
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' && queryButtonRef.current) {
+            queryButtonRef.current.click();
+          }
+        }}
         onChange={ (e) => setSearch({ search: e.target.value, category }) }
       />
       <br />
@@ -23,6 +28,10 @@ const SearchBar = ({ setSearch, category }) => (
 SearchBar.propTypes = {
   setSearch: PropTypes.func.isRequired,
   category: PropTypes.string.isRequired,
+  queryButtonRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]),
 };
 
 export default SearchBar;

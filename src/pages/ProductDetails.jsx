@@ -35,7 +35,6 @@ const ProductDetails = () => {
       <BackArrow />
       <div className="product-details">
         {product.title !== undefined && <ProductInfo product={ product } />}
-        <p>Quantidade</p>
         <button
           type="button"
           onClick={ () => setQuantity((quantity === 0) ? 0 : quantity - 1) }

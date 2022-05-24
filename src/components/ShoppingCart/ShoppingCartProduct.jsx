@@ -4,7 +4,7 @@ import QuantityButtons from '../QuantityButtons';
 
 const ShoppingCartProduct = ({ product, setPrice, price }) => (
   <div className="product-cart-card">
-    <img src={ product.thumbnail } alt={ product.title } />
+    <div className="product-image"><img src={ product.thumbnail } alt={ product.title } /></div>
     <p data-testid="shopping-cart-product-name">
       {product.title}
     </p>

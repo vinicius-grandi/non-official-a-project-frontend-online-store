@@ -43,7 +43,7 @@ const QuantityButtons = ({ setPrice, price, product }) => {
   };
 
   return (
-    <>
+    <div>
       <button
         data-testid="product-increase-quantity"
         type="button"
@@ -68,7 +68,7 @@ const QuantityButtons = ({ setPrice, price, product }) => {
       >
         +
       </button>
-    </>
+    </div>
   );
 };
 

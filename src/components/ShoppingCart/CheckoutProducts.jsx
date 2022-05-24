@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const CheckoutProducts = () => (
   <Link to="/checkout-products">
     <button type="button" data-testid="checkout-product" className="icon-button">
-      <img src="images/checkout.png" alt="shpping cart icon" />
+      <img src="/images/checkout.png" alt="shopping cart icon" />
     </button>
   </Link>
 );
