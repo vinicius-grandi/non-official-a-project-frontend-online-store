@@ -151,6 +151,10 @@ body {
   width: 100%;
 }
 
+#shopping-cart {
+  margin: 1rem;
+}
+
 .product > div {
   display: flex;
 }

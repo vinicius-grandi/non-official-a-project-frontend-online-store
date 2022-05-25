@@ -16,9 +16,11 @@ const ShoppingCart = () => {
       </header>
       {Object.values(shoppingCart.productInfo).length < 1
         ? (
-          <h1 data-testid="shopping-cart-empty-message" id="shopping-cart-empty-message">
-            O seu carrinho está vazio
-          </h1>
+          <main id="shopping-cart">
+            <h1 data-testid="shopping-cart-empty-message" id="shopping-cart-empty-message">
+              O seu carrinho está vazio
+            </h1>
+          </main>
         )
         : (
           <div className="products-in-cart">
