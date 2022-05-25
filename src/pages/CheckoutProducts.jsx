@@ -1,14 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import BackArrow from '../components/BackArrow';
-import { useProductCount } from '../contexts/ShoppingCartProvider';
 import brazilianStates from '../data/brazilianStates.json'
 
 const CheckoutProducts = () => {
-  const { count, checkoutInfo } = useProductCount();
+  const shoppingCart = useSelector((state) => state.shoppingCart);
 
   const handleForm = () => <Redirect to="/" />;
-  if (checkoutInfo.totalPrice === 0) return <Redirect to="/" />;
+  if (shoppingCart.totalPrice === 0) return <Redirect to="/" />;
 
   return (
     <form
@@ -20,14 +20,14 @@ const CheckoutProducts = () => {
       <BackArrow />
       <div className="products">
         <h2>Revise seus Produtos</h2>
-        {count.map((product) => (
+        {Object.values(shoppingCart.productInfo).map((product) => (
           <div key={ product.id }>
             <img src={ product.thumbnail } alt={ product.title } />
             <p>{product.title}</p>
             <p className="price">{product.price}</p>
           </div>
         ))}
-        <span className="price total-price">{checkoutInfo.totalPrice}</span>
+        <span className="price total-price">{shoppingCart.totalPrice}</span>
       </div>
       <h2>Informações do Comprador</h2>
       <div className="client-info">

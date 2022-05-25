@@ -11,11 +11,10 @@ const ProductInfo = ({ product }) => {
         </h1>
         {product.shipping.free_shipping
             && (
-              <span>
+              <span className="free-shipping">
                 <img
-                  src="/images/free-shipping.png"
+                  src="/non-official-a-project-frontend-online-store/images/free-shipping.png"
                   alt="free shipping icon"
-                  className="free-shipping"
                   data-testid="free-shipping"
                 />
                 Frete Grátis

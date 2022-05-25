@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProductByQuantity } from '../store/ShoppingCart.store';
 import { useParams } from 'react-router-dom';
 import BackArrow from '../components/BackArrow';
 import Review from '../components/ProductDetails/Review';
 import ShoppingCartIcon from '../components/ShoppingCart/ShoppingCartIcon';
-import { useProductCount } from '../contexts/ShoppingCartProvider';
 import * as api from '../services/api';
 import ReviewCard from '../components/ProductDetails/ReviewCard';
-import { addItem } from '../components/ItemToCart';
 import ProductInfo from '../components/ProductDetails/ProductInfo';
 
 const ProductDetails = () => {
+  const shoppingCart = useSelector((state) => state.shoppingCart);
   const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
   const [product, setProduct] = useState({});
   const { id: urlID } = useParams();
-  const { count, productQuantity, setProductQuantity,
-    checkoutInfo, setCheckoutInfo, setProductCount } = useProductCount();
-  const pQuantity = productQuantity.find(({ id }) => id === product.id);
+  const pQuantity = shoppingCart.productInfo[urlID];
   const [quantity, setQuantity] = useState(0);
   const [review, setReview] = useState([]);
 
@@ -58,20 +58,10 @@ const ProductDetails = () => {
           type="button"
           data-testid="product-detail-add-to-cart"
           onClick={ () => {
-            const filteredQuantity = productQuantity.filter(
-              ({ id: pid }) => pid !== product.id || pid === undefined,
-            );
-            setProductQuantity([
-              ...filteredQuantity,
-              { id: product.id,
-                quantity: (pQuantity === undefined)
-                  ? 0 + quantity
-                  : pQuantity.quantity + quantity }]);
-
-            setCheckoutInfo({
-              totalPrice: checkoutInfo.totalPrice + (quantity * product.price) });
-
-            addItem(product, { setProductCount, count }, (quantity !== 0));
+            dispatch(addProductByQuantity({
+              ...product,
+              quantity,
+            }));
             setQuantity(0);
           } }
         >
@@ -89,7 +79,7 @@ const ProductDetails = () => {
           )}
         </div>
       </div>
-      <ShoppingCartIcon count={ count } />
+      <ShoppingCartIcon />
     </div>
   );
 };

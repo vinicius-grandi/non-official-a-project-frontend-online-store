@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import Categories from '../components/Search/Categories';
 import SearchBar from '../components/Search/SearchBar';
 import Products from '../components/Products';
-import { useProductCount } from '../contexts/ShoppingCartProvider';
 import ShoppingCartIcon from '../components/ShoppingCart/ShoppingCartIcon';
 
 const Search = () => {
@@ -10,7 +9,6 @@ const Search = () => {
   const queryButtonRef = useRef(null);
   const [category, setCategory] = useState('');
   const [query, setQuery] = useState({ search: '', category: '' });
-  const { count } = useProductCount();
   return (
     <div className="search-form">
       <div className="categories">
@@ -41,7 +39,7 @@ const Search = () => {
             />
           ) }
       </div>
-      <ShoppingCartIcon count={ count } />
+      <ShoppingCartIcon />
     </div>
   );
 };

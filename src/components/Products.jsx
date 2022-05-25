@@ -1,25 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addProduct } from '../store/ShoppingCart.store';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { useProductCount } from '../contexts/ShoppingCartProvider';
 import * as api from '../services/api';
-import ItemToCart from './ItemToCart';
 
 const Products = ({ search, category }) => {
   const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
-  const { count, setProductCount,
-    productQuantity, setProductQuantity,
-    setCheckoutInfo, checkoutInfo } = useProductCount();
-  const props = {
-    count,
-    setProductCount,
-    productQuantity,
-    setProductQuantity,
-    setCheckoutInfo,
-    checkoutInfo,
-  };
-
   useEffect(() => {
     api.getProductsFromCategoryAndQuery(category, search).then((res) => {
       setProducts(res.results);
@@ -42,11 +31,11 @@ const Products = ({ search, category }) => {
             <img src={ `${product.thumbnail}` } alt={ `${product.title}` } />
             {product.shipping.free_shipping
             && (
-              <span>
+              <span className="free-shipping"
+              >
                 <img
-                  src="images/free-shipping.png"
+                  src="/non-official-a-project-frontend-online-store/images/free-shipping.png"
                   alt="free shipping icon"
-                  className="free-shipping"
                   data-testid="free-shipping"
                 />
                 Frete Grátis
@@ -57,7 +46,9 @@ const Products = ({ search, category }) => {
             type="button"
             data-testid="product-detail-add-to-cart"
             className="add-to-cart-button"
-            onClick={ () => ItemToCart({ props, product }) }
+            onClick={ () => {
+              dispatch(addProduct(product));
+            } }
           >
             Adicionar ao carrinho
           </button>

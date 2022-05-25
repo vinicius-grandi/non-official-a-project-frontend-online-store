@@ -1,9 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { useProductCount } from '../../contexts/ShoppingCartProvider';
 
 const ShoppingCartIcon = () => {
-  const { productQuantity } = useProductCount();
+  const shoppingCart = useSelector((state) => state.shoppingCart);
 
   return (
     <Link to="/shopping-cart" id="shopping-icon">
@@ -12,9 +12,9 @@ const ShoppingCartIcon = () => {
           className="product-count"
           data-testid="shopping-cart-size"
         >
-          {productQuantity.reduce((ac, { quantity }) => ac + quantity, 0)}
+          {shoppingCart.totalQuantity}
         </span>
-        <img src="/images/shopping-cart.png" alt="shpping cart icon" />
+        <img src="/non-official-a-project-frontend-online-store/images/shopping-cart.png" alt="shpping cart icon" />
       </button>
     </Link>
   );

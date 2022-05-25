@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import BackArrow from '../components/BackArrow';
 import CheckoutProducts from '../components/ShoppingCart/CheckoutProducts';
 import ShoppingCartProduct from '../components/ShoppingCart/ShoppingCartProduct';
-import { useProductCount } from '../contexts/ShoppingCartProvider';
 
 const ShoppingCart = () => {
-  const { count, checkoutInfo } = useProductCount();
-  const [price, setPrice] = useState(checkoutInfo.totalPrice);
+  const shoppingCart = useSelector((state) => state.shoppingCart);
+  const [price, setPrice] = useState(shoppingCart.totalPrice);
 
   return (
     <>
@@ -14,7 +14,7 @@ const ShoppingCart = () => {
         <BackArrow />
         <CheckoutProducts />
       </header>
-      {count.length < 1
+      {Object.values(shoppingCart.productInfo).length < 1
         ? (
           <h1 data-testid="shopping-cart-empty-message" id="shopping-cart-empty-message">
             O seu carrinho está vazio
@@ -22,7 +22,7 @@ const ShoppingCart = () => {
         )
         : (
           <div className="products-in-cart">
-            {count.map((product) => (
+            {Object.values(shoppingCart.productInfo).map((product) => (
               <ShoppingCartProduct
                 price={ price }
                 setPrice={ setPrice }
@@ -31,7 +31,7 @@ const ShoppingCart = () => {
               />
             ))}
             <span className="price total-price">
-              {checkoutInfo.totalPrice}
+              {shoppingCart.totalPrice}
             </span>
           </div>
         )}
